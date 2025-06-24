@@ -6,6 +6,7 @@ import cloudinary from "../utils/cloudinary.js";
 
 export const register = async (req, res) => {
     try {
+        console.log("Register route hit");
         const { fullname, email, phoneNumber, password, role } = req.body;
          
         if (!fullname || !email || !phoneNumber || !password || !role) {
@@ -37,6 +38,8 @@ export const register = async (req, res) => {
                 profilePhoto:cloudResponse.secure_url,
             }
         });
+
+        
 
         return res.status(201).json({
             message: "Account created successfully.",
